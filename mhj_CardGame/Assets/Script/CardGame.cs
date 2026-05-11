@@ -20,6 +20,14 @@ public class CardGame : MonoBehaviour
 
     void StartGame()
     {
+        for (int i = 0; i < sprites.Count; i++)
+        {
+            int rnd = Random.Range(0, sprites.Count);
+            Sprite temp = sprites[i];
+            sprites[i] = sprites[rnd];
+            sprites[rnd] = temp;
+        }
+
         int totalCardCount = CardPairCount * 2;
         for (int i = 0; i < totalCardCount; i++)
         {

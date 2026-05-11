@@ -15,6 +15,8 @@ public class Card : MonoBehaviour
     public int number;
     public CardGame cardGame;
     public bool isMatched = false;
+    public GameObject frontObject;
+    public GameObject backObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
 
@@ -39,14 +41,17 @@ public class Card : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, flipRotation, rotateY * Time.deltaTime);
 
         }
-        /*if (currentY < 180 && currentY >= 0)
+
+        if (currentY > 90f && currentY < 270f)
         {
-            transform.Rotate(0, rotateY, 0);
+            frontObject.SetActive(false);
+            backObject.SetActive(true);
         }
-        else if (isClick)
+        else
         {
-            transform.Rotate(0, rotateY, 0);
-        }*/
+            frontObject.SetActive(true);
+            backObject.SetActive(false);
+        }
     }
     public void ClickCard()
     {
@@ -74,13 +79,25 @@ public class Card : MonoBehaviour
     }
 
     public void ChangeColor(Color newColor)
+
     {
+
         GetComponent<Image>().color = newColor;
+
     }
+
+
 
     public void SetImage(Sprite sprite)
+
     {
+
         GetComponent<Image>().sprite = sprite;
+
     }
 
+
+
 }
+
+
