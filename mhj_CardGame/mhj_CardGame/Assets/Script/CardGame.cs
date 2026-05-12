@@ -20,8 +20,6 @@ public class CardGame : MonoBehaviour
 
     void StartGame()
     {
-        SoundManager.Instance.PlayBGM();
-
         for (int i = 0; i < sprites.Count; i++)
         {
             int rnd = Random.Range(0, sprites.Count);
@@ -86,13 +84,13 @@ public class CardGame : MonoBehaviour
         {
             firstCard = card;
             firstCard.Flip(true);
-            SoundManager.Instance.PlaySoundFx();
+            SoundManager.Instance.PlaySound();
         }
         else
         {
             SecondCard = card;
             SecondCard.Flip(true);
-            SoundManager.Instance.PlaySoundFx();
+            SoundManager.Instance.PlaySound();
         }
         if (firstCard != null && SecondCard != null)
         {
